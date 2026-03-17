@@ -1,0 +1,67 @@
+/* ──────────────────────────────────────────
+   base.css  —  reset, variables, body, layout
+   ────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── Super Mario palette ── */
+  --sky:        #5c94fc;   /* classic overworld blue */
+  --hud:        #000000;   /* game HUD black */
+  --coin:       #ffd700;   /* gold coin */
+  --coin-dark:  #c8a000;
+  --brick:      #c84b0c;   /* Mario brick orange-red */
+  --brick-dark: #7a2d00;
+  --pipe:       #149414;   /* warp pipe green */
+  --mario-red:  #cc0000;
+  --mario-blue: #1a5fc8;
+  --white:      #ffffff;
+  --black:      #000000;
+  --text-dark:  #2a1400;
+}
+
+html, body { height: 100%; }
+
+body {
+  /* Mario World 1-1 sky + CSS clouds */
+  background-color: var(--sky);
+  background-image:
+    radial-gradient(ellipse  90px 45px at  9% 18%, rgba(255,255,255,0.92) 100%, transparent),
+    radial-gradient(ellipse  55px 32px at  6% 14%, rgba(255,255,255,0.92) 100%, transparent),
+    radial-gradient(ellipse  70px 34px at 14% 22%, rgba(255,255,255,0.92) 100%, transparent),
+    radial-gradient(ellipse 110px 55px at 58% 11%, rgba(255,255,255,0.90) 100%, transparent),
+    radial-gradient(ellipse  75px 38px at 54%  8%, rgba(255,255,255,0.90) 100%, transparent),
+    radial-gradient(ellipse  85px 38px at 64% 15%, rgba(255,255,255,0.90) 100%, transparent),
+    radial-gradient(ellipse  75px 38px at 84% 28%, rgba(255,255,255,0.85) 100%, transparent),
+    radial-gradient(ellipse  48px 26px at 81% 24%, rgba(255,255,255,0.85) 100%, transparent);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── Page wrapper ── */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 28px 120px;
+}
+
+/* ── Tab panels ── */
+.tab-panel          { display: none; }
+.tab-panel.active   { display: block; }
+
+/* ── Section title (brick sign) ── */
+.panel-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.72rem;
+  color: var(--white);
+  text-shadow: 3px 3px 0 var(--black);
+  margin-bottom: 36px;
+  padding: 14px 24px;
+  background: var(--brick);
+  border: 4px solid var(--black);
+  box-shadow: 6px 6px 0 var(--black);
+  display: inline-block;
+  border-radius: 4px;
+}

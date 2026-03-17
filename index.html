@@ -1,7 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodingTMD Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- ─── Styles (each file owns one concern) ─── -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/hud.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+  <!-- ════════════════════════════════════════
+       HEADER — HUD + pixel tab bar
+       To add a category:
+         1. Add a .tab-btn with data-tab="newid" here
+         2. Add a matching .tab-panel#newid in <main>
+       ════════════════════════════════════════ -->
+  <header>
+    <div class="hud">
+      <a class="hud-brand" href="#">🍄 CODINGTMD-HUB</a>
+      <div class="hud-right">
+        <div class="hud-stat">
+          <span class="label">WORLD</span>
+          <span>1-1</span>
+        </div>
+        <div class="hud-stat">
+          <span class="label">READS</span>
+          <span>🪙 FREE</span>
+        </div>
+      </div>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="books">📚 BOOKS</button>
+      <button class="tab-btn" data-tab="blog">📝 BLOG</button>
+      <button class="tab-btn" data-tab="repos">💾 REPOS</button>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       MAIN — one .tab-panel per category.
+       Cards use shared CSS from cards.css —
+       no per-category styling needed.
+       ════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── BOOKS ─────────────────────────────
+         Add more .item-card blocks here for
+         each new book. Cards auto-reflow.
+         ──────────────────────────────────── -->
+    <div class="tab-panel active" id="books">
+      <div class="panel-title">📚 BOOK COLLECTION</div>
+      <div class="cards-grid">
+
+        <div class="item-card">
+          <div class="card-image">
+            🍄
+            <span class="badge">★ FREE</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Intro to Cryptography</div>
+            <p class="card-desc">
+              A hands-on guide to cryptography fundamentals — classical ciphers, hashing functions,
+              asymmetric keys, digital signatures, and real-world protocols like TLS and blockchain.
+              Written for developers and curious beginners. Available in English and Chinese (中文).
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-en"
+                 href="books/intro_to_crypto/english%20version%207x10%20v4%20proof%20fix.pdf"
+                 target="_blank" rel="noopener">⬇ EN PDF</a>
+              <a class="btn btn-cn"
+                 href="books/intro_to_crypto/chinese%20version%2020190212.pdf"
+                 target="_blank" rel="noopener">⬇ 中文 PDF</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /#books -->
+
+    <!-- ── BLOG ──────────────────────────────
+         Add .item-card blocks here for posts.
+         ──────────────────────────────────── -->
+    <div class="tab-panel" id="blog">
+      <div class="panel-title">📝 BLOG</div>
+      <div class="cards-grid">
+
+        <div class="item-card locked">
+          <div class="card-image">✏️</div>
+          <div class="card-body">
+            <div class="card-title">First Post</div>
+            <p class="card-desc">Coming soon...</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /#blog -->
+
+    <!-- ── REPOS ─────────────────────────────
+         Add .item-card blocks per repo.
+         ──────────────────────────────────── -->
+    <div class="tab-panel" id="repos">
+      <div class="panel-title">💾 GITHUB REPOS</div>
+      <div class="cards-grid">
+
+        <div class="item-card locked">
+          <div class="card-image">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">Featured Repo</div>
+            <p class="card-desc">Coming soon...</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /#repos -->
+
+  </main>
+
+  <!-- Brick ground strip -->
+  <div class="mario-ground"></div>
+
+  <!-- ── Floating donation coin ── -->
+  <button class="coin-float" id="coin-btn" aria-label="Donate crypto">
+    <span class="coin-tip">DONATE</span>
+    🪙
+  </button>
+
+  <!-- ── Donation modal ── -->
+  <div class="modal-backdrop" id="donation-modal" role="dialog" aria-modal="true"
+       aria-labelledby="modal-label">
+    <div class="modal-box">
+      <div class="modal-titlebar">
+        <span id="modal-label">💰 SUPPORT THE ADVENTURE</span>
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-coin">🪙</div>
+        <p class="modal-heading">SEND ERC-20 TOKENS<br>TO FUEL MORE CONTENT!</p>
+        <p class="modal-sub">EVM-compatible address (ETH / USDT / USDC / any ERC-20)</p>
+        <div class="addr-box">
+          <span class="addr-text" id="eth-addr">0x666885a437BaF927cE2424E7f353e5c264818888</span>
+          <button class="copy-btn" id="copy-btn">COPY</button>
+        </div>
+        <p class="modal-note">Works on Ethereum, Polygon, BNB Chain, and other EVM networks.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Scripts ─── -->
+  <script src="js/tabs.js"></script>
+  <script src="js/modal.js"></script>
+
 </body>
 </html>

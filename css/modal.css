@@ -1,0 +1,180 @@
+/* ──────────────────────────────────────────
+   modal.css  —  brick ground strip, floating coin,
+                 donation modal
+   ────────────────────────────────────────── */
+
+/* ── Mario brick ground (fixed bottom strip) ── */
+.mario-ground {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 48px;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 46px,
+      rgba(0,0,0,0.28) 46px, rgba(0,0,0,0.28) 50px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 22px,
+      rgba(0,0,0,0.28) 22px, rgba(0,0,0,0.28) 24px),
+    var(--brick);
+  border-top: 6px solid var(--black);
+  z-index: 50;
+}
+
+/* ── Pulsing gold coin button (bottom-right) ── */
+.coin-float {
+  position: fixed;
+  bottom: 64px;
+  right: 28px;
+  z-index: 100;
+  width: 74px; height: 74px;
+  border-radius: 50%;
+  background: var(--coin);
+  border: 4px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2.6rem;
+  line-height: 1;
+  animation: coinGlow 1.4s ease-in-out infinite;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.coin-float:hover  { transform: translateY(-4px); box-shadow: 4px 8px 0 var(--black); }
+.coin-float:active { transform: translateY( 2px); box-shadow: 2px 2px 0 var(--black); }
+
+@keyframes coinGlow {
+  0%, 100% { box-shadow: 4px 4px 0 var(--black), 0 0 0  0px rgba(255,215,0,0.6); }
+  50%       { box-shadow: 4px 4px 0 var(--black), 0 0 0 14px rgba(255,215,0,0);   }
+}
+
+.coin-float .coin-tip {
+  position: absolute;
+  top: -28px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.33rem;
+  background: var(--black);
+  color: var(--coin);
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ── Modal backdrop ── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.modal-backdrop.open { display: flex; }
+
+/* ── Modal box ── */
+.modal-box {
+  background: var(--white);
+  border: 6px solid var(--black);
+  box-shadow: 10px 10px 0 var(--black);
+  border-radius: 8px;
+  max-width: 480px;
+  width: 92%;
+  overflow: hidden;
+}
+
+.modal-titlebar {
+  background: var(--mario-blue);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--black);
+}
+.modal-titlebar span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  color: var(--white);
+  text-shadow: 2px 2px 0 var(--black);
+}
+
+.modal-close {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  background: var(--mario-red);
+  color: var(--white);
+  border: 3px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.modal-close:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--black); }
+
+.modal-body {
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-coin { text-align: center; font-size: 4rem; }
+
+.modal-heading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  line-height: 2.2;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.modal-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666;
+  text-align: center;
+}
+
+.addr-box {
+  background: #f4f4f4;
+  border: 3px solid var(--black);
+  border-radius: 4px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.addr-text {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  word-break: break-all;
+  flex: 1;
+  color: var(--text-dark);
+  user-select: all;
+}
+
+.copy-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.38rem;
+  background: var(--pipe);
+  color: var(--white);
+  border: 3px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.copy-btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--black); }
+.copy-btn.copied { background: var(--coin); color: var(--black); }
+
+.modal-note {
+  font-size: 0.78rem;
+  color: #999;
+  text-align: center;
+  line-height: 1.65;
+}

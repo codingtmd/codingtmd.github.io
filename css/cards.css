@@ -1,0 +1,143 @@
+/* ──────────────────────────────────────────
+   cards.css  —  grid, Instagram-story portrait cards,
+                 buttons, locked state
+   To add a new category: add your .item-card HTML.
+   No CSS changes needed — styles apply universally.
+   ────────────────────────────────────────── */
+
+/* ── Grid: portrait cards, max 4 per row, card width 260-340px ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 340px));
+  gap: 32px;
+  justify-content: start;
+}
+
+/* ── Portrait card — fixed total height like an IG story card ── */
+.item-card {
+  background: var(--white);
+  border: 4px solid var(--black);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 520px;          /* fixed card height */
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.item-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0 var(--black);
+}
+.item-card:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+/* ── Image zone: ~60% of fixed card height ── */
+.card-image {
+  height: 300px;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #1a5fc8 0%, #5c94fc 60%, #8eb8ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  border-bottom: 4px solid var(--black);
+  position: relative;
+}
+
+/* Small badge in top-left of image */
+.card-image .badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.38rem;
+  background: var(--coin);
+  color: var(--black);
+  padding: 5px 12px;
+  border: 2px solid var(--black);
+  border-radius: 3px;
+}
+
+/* ── Card text body ── */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  background: var(--white);
+}
+
+.card-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.58rem;
+  line-height: 1.9;
+  color: var(--text-dark);
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.78;
+  color: #555;
+  /* Clamp to 4 lines, show ellipsis if text overflows */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Pixel buttons — always pinned to bottom ── */
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;   /* pushes buttons to bottom of card-body */
+  padding-top: 12px;  /* breathing room above buttons */
+  flex-shrink: 0;
+}
+
+.btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.42rem;
+  padding: 10px 14px;
+  border: 3px solid var(--black);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 var(--black);
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn:hover  { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--black); }
+.btn:active { transform: translate(2px, 2px);   box-shadow: 1px 1px 0 var(--black); }
+
+.btn-en      { background: var(--mario-blue); }
+.btn-cn      { background: var(--mario-red);  }
+.btn-primary { background: var(--pipe);       }
+
+/* ── Locked / coming-soon card ── */
+.item-card.locked {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.item-card.locked::after {
+  content: '🔒 COMING SOON';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  color: var(--coin);
+  text-shadow: 2px 2px 0 var(--black);
+  background: rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
