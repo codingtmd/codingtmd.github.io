@@ -102,23 +102,14 @@
          Add .item-card blocks here for posts.
          ──────────────────────────────────── -->
     <div class="tab-panel" id="blog">
-      <div class="panel-title">📝 BLOG</div>
-      <div class="cards-grid">
-
-        <div class="item-card">
-          <div class="card-image">🍃</div>
-          <div class="card-body">
-            <div class="card-title">Island Dev Log</div>
-            <p class="card-desc">
-              Cozy notes about shipping projects, tiny design wins, and experiments in crypto learning.
-              Styled like a soft Animal Crossing bulletin board.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href="#" aria-disabled="true">ISLAND GATE OPENS SOON</a>
-            </div>
+      <div class="panel-title">🍃 ISLAND DEV LOG</div>
+      <div class="blog-feed" id="blog-feed" role="region" aria-label="Island blog feed">
+        <article class="blog-row loading">
+          <div class="row-main">
+            <h3>Loading island notes...</h3>
+            <p>Reading markdown posts from the blog folders.</p>
           </div>
-        </div>
-
+        </article>
       </div>
     </div><!-- /#blog -->
 
@@ -208,6 +199,7 @@
   <!-- ─── Scripts ─── -->
   <script src="js/tabs.js"></script>
   <script src="js/modal.js"></script>
+  <script src="js/blog.js"></script>
 
 </body>
 </html>

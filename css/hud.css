@@ -149,15 +149,16 @@ body.theme-books .tab-btn[data-tab="books"] {
 
 /* Blog header theme: warm wood + soft green controls. */
 body.theme-blog .hud {
-  background: #7e5f3f;
-  border-bottom-color: #f8edd1;
+  background: linear-gradient(180deg, #7f5d3d 0%, #6a4b31 100%);
+  border-bottom-color: #f6e6bc;
+  box-shadow: 0 4px 0 rgba(58, 40, 26, 0.4);
 }
 
 body.theme-blog .hud-brand {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: #f8edd1;
-  text-shadow: none;
+  text-shadow: 1px 1px 0 #4f3723;
 }
 
 body.theme-blog .hud-stat .label {
@@ -165,27 +166,29 @@ body.theme-blog .hud-stat .label {
 }
 
 body.theme-blog .tab-bar {
-  background: #7e5f3f;
+  background: linear-gradient(180deg, #f4e4b8 0%, #e9d5a2 100%);
+  border-bottom: 3px solid #6f945f;
 }
 
 body.theme-blog .tab-btn {
   font-family: 'Baloo 2', cursive;
-  font-size: 0.95rem;
-  background: #dcefdc;
+  font-size: 1rem;
+  background: linear-gradient(180deg, #dff2d7 0%, #cbe8bf 100%);
   color: #2f5a3a;
-  border: 2px solid #2f5a3a;
-  box-shadow: 0 4px 0 #2f5a3a;
+  border: 2px solid #6f945f;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 #6f945f;
 }
 
 body.theme-blog .tab-btn:hover {
-  background: #cbe5cb;
+  background: linear-gradient(180deg, #ebf8e3 0%, #d6efcb 100%);
 }
 
 body.theme-blog .tab-btn.active {
-  background: #8fcd9f;
+  background: linear-gradient(180deg, #9dd79f 0%, #82c685 100%);
   color: #1f4028;
   transform: translate(0, 2px);
-  box-shadow: 0 2px 0 #2f5a3a;
+  box-shadow: 0 2px 0 #5f8752;
 }
 
 /* Repos header theme: simple and low-noise. */

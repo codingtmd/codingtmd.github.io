@@ -220,60 +220,120 @@
 }
 
 /* ── BLOG / Animal Crossing style overrides ── */
-#blog .cards-grid {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 420px));
+#blog .blog-feed {
+  width: min(1080px, calc(100% - 36px));
+  margin: 14px auto 0;
+  padding: 18px;
+  border: 4px solid #6f945f;
+  border-radius: 22px;
+  box-shadow: 0 10px 0 #6f945f;
+  background: linear-gradient(180deg, rgba(251, 246, 230, 0.97) 0%, rgba(243, 232, 200, 0.97) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-#blog .item-card {
-  height: auto;
-  min-height: 420px;
-  border: 3px solid #7ba686;
-  border-radius: 20px;
-  box-shadow: 0 10px 0 #b7cfbc;
-  background: #fff8e8;
+#blog .blog-row {
+  position: relative;
+  border-radius: 14px;
+  border: 2px solid #7f9f70;
+  box-shadow: 0 4px 0 rgba(111, 148, 95, 0.75);
+  padding: 14px 14px 14px 18px;
+  background: #ebf7e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-#blog .item-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 0 #b7cfbc;
+#blog .blog-row::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff8c79;
+  border: 2px solid #fff6e5;
+  box-shadow: 0 0 0 2px #9f6556;
 }
 
-#blog .card-image {
-  height: 220px;
-  font-size: 5rem;
-  background:
-    radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.75) 0, rgba(255, 255, 255, 0) 38%),
-    linear-gradient(180deg, #bfe8cf 0%, #8fcd9f 100%);
-  border-bottom: 3px dashed #6e9f77;
-}
-
-#blog .card-body {
-  background: #fff8e8;
-}
-
-#blog .card-title {
+#blog .blog-row .row-main h3 {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  color: #2f5a3a;
+  font-size: 1.16rem;
+  line-height: 1.1;
+  color: #31593d;
 }
 
-#blog .card-desc {
-  color: #52755a;
+#blog .blog-row .row-main p {
+  color: #486652;
   font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin-top: 6px;
 }
 
-#blog .btn {
-  font-family: 'Baloo 2', cursive;
-  font-size: 0.95rem;
+#blog .row-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 170px;
+}
+
+#blog .row-date {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4rem;
+  color: #5c7a5d;
+}
+
+#blog .row-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
   border-radius: 999px;
-  border: 2px solid #2f5a3a;
-  box-shadow: 0 4px 0 #2f5a3a;
-  color: #fff;
+  border: 2px solid #6f945f;
+  box-shadow: 0 3px 0 #6f945f;
+  background: linear-gradient(180deg, #9dd79f 0%, #82c685 100%);
+  color: #1f4028;
+  text-decoration: none;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
-#blog .btn-primary {
-  background: #5ea974;
+#blog .row-open:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #6f945f;
+}
+
+#blog .row-open:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #6f945f;
+}
+
+#blog .blog-row.loading {
+  background: #f2f8ee;
+}
+
+@media (max-width: 760px) {
+  #blog .blog-feed {
+    width: calc(100% - 16px);
+    padding: 14px;
+  }
+
+  #blog .blog-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #blog .row-meta {
+    align-items: flex-start;
+    min-width: 0;
+  }
 }
 
 /* ── REPOS / treasure map with pinned repositories ── */

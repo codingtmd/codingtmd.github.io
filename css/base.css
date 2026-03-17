@@ -39,12 +39,10 @@ body.theme-books {
 
 /* Blog: soft green Animal Crossing vibe with gentle pattern. */
 body.theme-blog {
-  background-color: #e4f6e7;
-  background-image:
-    radial-gradient(circle at 12px 12px, rgba(95, 146, 108, 0.08) 2px, transparent 2px),
-    radial-gradient(circle at 36px 36px, rgba(95, 146, 108, 0.06) 2px, transparent 2px),
-    linear-gradient(180deg, #f5fff6 0%, #def2e0 100%);
-  background-size: 48px 48px, 48px 48px, 100% 100%;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.55) 0 18%, transparent 19%),
+    radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.45) 0 15%, transparent 16%),
+    linear-gradient(180deg, #c9f0d1 0%, #b6e8c1 42%, #9ed8ae 100%);
   color: #2b4a33;
 }
 
@@ -72,6 +70,12 @@ body.theme-books main {
 }
 
 body.theme-repos main {
+  max-width: none;
+  width: 100%;
+  padding: 0;
+}
+
+body.theme-blog main {
   max-width: none;
   width: 100%;
   padding: 0;
@@ -394,14 +398,37 @@ body.theme-repos main {
 
 #blog .panel-title {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.1rem;
-  letter-spacing: 0.6px;
-  color: #2f5a3a;
-  text-shadow: none;
-  background: #f8edd1;
-  border: 3px solid #6e9f77;
-  border-radius: 18px;
-  box-shadow: 0 6px 0 #a9c7ae;
+  font-size: 1.2rem;
+  letter-spacing: 0.8px;
+  color: #30553a;
+  text-shadow: 1px 1px 0 #f4f9ea;
+  background: linear-gradient(180deg, #f8edc9 0%, #e9d7a8 100%);
+  border: 3px solid #6f945f;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 #6f945f;
+}
+
+#blog {
+  position: relative;
+  min-height: calc(100dvh - 106px);
+  padding: 26px 0 90px;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(236, 255, 233, 0.55) 0 20%, transparent 21%),
+    radial-gradient(circle at 72% 34%, rgba(224, 248, 223, 0.62) 0 22%, transparent 23%),
+    linear-gradient(180deg, #c7efcf 0%, #b7e7c0 48%, #a3d8af 100%);
+}
+
+#blog::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 88px;
+  background:
+    repeating-linear-gradient(90deg, rgba(106, 149, 94, 0.3) 0 14px, rgba(106,149,94,0) 14px 28px),
+    linear-gradient(180deg, #88c67f 0%, #70ae67 100%);
+  border-top: 4px solid #4f7f4a;
 }
 
 #repos .panel-title {

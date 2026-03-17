@@ -24,10 +24,11 @@
     }
 
     if (id === 'blog') {
+      const blogCount = Number(window.__blogPostCount || 0);
       l1.textContent = 'SEASON';
       v1.textContent = 'SPRING';
       l2.textContent = 'POSTS';
-      v2.textContent = '✏ SOON';
+      v2.textContent = `✏ ${blogCount || 'SOON'}`;
       return;
     }
 
