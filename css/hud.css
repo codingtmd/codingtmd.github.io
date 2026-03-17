@@ -191,25 +191,33 @@ body.theme-blog .tab-btn.active {
 /* Repos header theme: simple and low-noise. */
 body.theme-repos .hud,
 body.theme-repos .tab-bar {
-  background: #cfd7e0;
-  border-bottom-color: #8fa0b1;
+  background:
+    linear-gradient(180deg, #6f4f32 0%, #5b3f28 100%);
+  border-bottom-color: #e6c98f;
 }
 
 body.theme-repos .hud-brand,
 body.theme-repos .hud-stat {
-  color: #2e4154;
-  text-shadow: none;
+  color: #f5e7c8;
+  text-shadow: 1px 1px 0 #2f2014;
+}
+
+body.theme-repos .hud-stat .label {
+  color: #d9be8a;
 }
 
 body.theme-repos .tab-btn {
-  background: #e6ebf1;
-  color: #3a4e62;
-  border-color: #8fa0b1;
-  box-shadow: none;
+  background:
+    linear-gradient(180deg, #efdfbc 0%, #d8bc87 100%);
+  color: #4a331f;
+  border-color: #6d4f2d;
+  box-shadow: 0 4px 0 #6d4f2d;
+  border-radius: 6px;
 }
 
 body.theme-repos .tab-btn.active {
-  background: #b9c5d2;
-  color: #23303c;
-  transform: none;
+  background: linear-gradient(180deg, #8ed2df 0%, #64b5c6 100%);
+  color: #183740;
+  transform: translate(0, 2px);
+  box-shadow: 0 2px 0 #3a5e66;
 }

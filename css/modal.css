@@ -184,6 +184,14 @@ body.theme-books .mario-ground {
   display: none;
 }
 
+body.theme-repos .mario-ground {
+  display: none;
+}
+
+body.theme-repos .coin-float {
+  display: none;
+}
+
 body.theme-books .coin-float {
   display: flex;
 }

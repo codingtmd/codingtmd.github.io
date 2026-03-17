@@ -24,12 +24,12 @@
       <a class="hud-brand" href="#">🍄 CODINGTMD-HUB</a>
       <div class="hud-right">
         <div class="hud-stat">
-          <span class="label">WORLD</span>
-          <span>1-1</span>
+          <span class="label" id="hud-label-1">WORLD</span>
+          <span id="hud-value-1">1-1</span>
         </div>
         <div class="hud-stat">
-          <span class="label">READS</span>
-          <span>🪙 FREE</span>
+          <span class="label" id="hud-label-2">READS</span>
+          <span id="hud-value-2">🪙 FREE</span>
         </div>
       </div>
     </div>
@@ -126,8 +126,51 @@
          Add .item-card blocks per repo.
          ──────────────────────────────────── -->
     <div class="tab-panel" id="repos">
-      <div class="panel-title">💾 GITHUB REPOS</div>
-      <div class="repos-empty" aria-hidden="true"></div>
+      <div class="repo-map" role="region" aria-label="Treasure map of repositories">
+        <section class="map-area area-crypto">
+          <h3>CRYPTO · PIRATES COVE</h3>
+          <a class="treasure-pin pin-vanity" href="https://github.com/codingtmd/vanity-crypto-address-factory" target="_blank" rel="noopener">
+            <span class="pin-title">Vanity Crypto Address Factory</span>
+            <span class="pin-meta">Generate custom crypto wallet prefixes fast.</span>
+          </a>
+          <a class="treasure-pin pin-chain" href="https://github.com/codingtmd/mini-blockchain" target="_blank" rel="noopener">
+            <span class="pin-title">Mini Blockchain</span>
+            <span class="pin-meta">A compact blockchain implementation for learning.</span>
+          </a>
+          <a class="treasure-pin pin-coinscan" href="https://github.com/codingtmd/coinscan" target="_blank" rel="noopener">
+            <span class="pin-title">Coinscan</span>
+            <span class="pin-meta">Scan and inspect token/project chain data.</span>
+          </a>
+        </section>
+
+        <section class="map-area area-game">
+          <h3>GAME · MERMAID LAGOON</h3>
+          <a class="treasure-pin pin-chat" href="https://github.com/codingtmd/simple-chat-game" target="_blank" rel="noopener">
+            <span class="pin-title">Simple Chat Game</span>
+            <span class="pin-meta">Lightweight multiplayer chat gameplay demo.</span>
+          </a>
+          <a class="treasure-pin pin-town" href="https://github.com/RPGGO-AI/gamify-ai-town" target="_blank" rel="noopener">
+            <span class="pin-title">Gamify AI Town</span>
+            <span class="pin-meta">AI-driven town simulation with game loops.</span>
+          </a>
+          <a class="treasure-pin pin-stardew" href="https://github.com/RPGGO-AI/stardewAIRPG" target="_blank" rel="noopener">
+            <span class="pin-title">stardewAIRPG</span>
+            <span class="pin-meta">RPG sandbox inspired by cozy farm worlds.</span>
+          </a>
+        </section>
+
+        <section class="map-area area-hobby">
+          <h3>HOBBIES · PEARL BEACH</h3>
+          <a class="treasure-pin pin-face" href="https://github.com/codingtmd/face-music" target="_blank" rel="noopener">
+            <span class="pin-title">Face Music</span>
+            <span class="pin-meta">Control music interactions via facial cues.</span>
+          </a>
+          <a class="treasure-pin pin-leetcode" href="https://github.com/codingtmd/leetcode" target="_blank" rel="noopener">
+            <span class="pin-title">Leetcode</span>
+            <span class="pin-meta">Algorithm practice notes and solutions.</span>
+          </a>
+        </section>
+      </div>
     </div><!-- /#repos -->
 
   </main>

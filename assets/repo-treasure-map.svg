@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Treasure map background">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f6ebd1"/>
+      <stop offset="100%" stop-color="#e2c89d"/>
+    </linearGradient>
+    <filter id="paperNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.05"/>
+      </feComponentTransfer>
+    </filter>
+    <style>
+      .coast { fill: #f6ecd4; stroke: #c38e58; stroke-width: 5; stroke-linejoin: round; }
+      .inner { fill: none; stroke: #e3c098; stroke-width: 2; stroke-linejoin: round; }
+      .route { fill: none; stroke: #3c2b1c; stroke-width: 4; stroke-dasharray: 14 12; stroke-linecap: round; }
+      .label { fill: #2f2419; font-family: Georgia, serif; font-size: 28px; letter-spacing: 1px; }
+      .small { font-size: 22px; }
+      .wave { fill: none; stroke: #9dd4db; stroke-width: 4; opacity: 0.75; }
+      .peak { fill: none; stroke: #b78b58; stroke-width: 4; }
+      .compass { fill: none; stroke: #3e2d1d; stroke-width: 5; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#paper)"/>
+  <rect width="1600" height="900" filter="url(#paperNoise)" opacity="0.35"/>
+
+  <path class="coast" d="M85,160 C160,120 260,110 340,140 C430,175 450,240 420,300 C390,360 395,420 430,455 C475,500 470,560 425,600 C365,652 248,645 170,600 C102,560 62,490 67,400 C72,330 92,265 85,160 Z"/>
+  <path class="inner" d="M125,185 C190,160 265,158 325,182 C386,207 405,250 384,295 C362,340 368,401 397,441 C430,486 426,539 391,572 C343,619 262,615 198,579 C145,548 111,491 112,415 C114,344 128,258 125,185 Z"/>
+
+  <path class="coast" d="M1060,220 C1160,178 1290,188 1377,255 C1460,318 1477,419 1424,494 C1372,570 1269,607 1176,590 C1078,572 1018,503 1006,420 C994,340 1002,259 1060,220 Z"/>
+  <path class="inner" d="M1091,245 C1172,215 1278,223 1345,275 C1410,325 1423,404 1382,464 C1340,524 1257,553 1185,541 C1110,529 1060,478 1049,414 C1039,356 1046,281 1091,245 Z"/>
+
+  <path class="coast" d="M510,575 C589,538 710,540 786,584 C849,620 858,690 812,747 C767,804 664,832 572,807 C476,781 428,707 443,648 C454,611 474,590 510,575 Z"/>
+  <path class="inner" d="M542,596 C607,567 701,570 758,603 C805,631 812,685 775,731 C738,777 660,797 591,778 C519,759 477,704 489,659 C497,631 513,611 542,596 Z"/>
+
+  <path class="route" d="M165,110 C110,210 95,335 108,448 C122,560 220,707 468,720"/>
+  <path class="route" d="M318,204 C520,176 730,225 792,339"/>
+  <path class="route" d="M840,338 C940,274 1138,257 1292,305 C1394,338 1453,427 1437,546 C1424,647 1334,700 1183,674"/>
+  <path class="route" d="M677,770 C905,751 1015,680 1078,596"/>
+
+  <path class="wave" d="M638,210 q20,-18 40,0 q20,18 40,0 q20,-18 40,0"/>
+  <path class="wave" d="M680,245 q20,-18 40,0 q20,18 40,0 q20,-18 40,0"/>
+  <path class="wave" d="M850,688 q20,-18 40,0 q20,18 40,0 q20,-18 40,0"/>
+  <path class="wave" d="M888,723 q20,-18 40,0 q20,18 40,0 q20,-18 40,0"/>
+  <path class="wave" d="M1228,170 q20,-18 40,0 q20,18 40,0 q20,-18 40,0"/>
+
+  <path class="peak" d="M1188,640 l24,-46 l24,46 M1228,658 l20,-38 l20,38 M1262,635 l24,-44 l24,44"/>
+  <path class="peak" d="M170,735 l25,-48 l25,48 M210,748 l21,-41 l21,41"/>
+
+  <g transform="translate(1345 102)">
+    <circle class="compass" cx="0" cy="0" r="58"/>
+    <circle class="compass" cx="0" cy="0" r="32"/>
+    <path class="compass" d="M0,-49 L11,0 L0,49 L-11,0 Z"/>
+    <path class="compass" d="M-49,0 L0,11 L49,0 L0,-11 Z"/>
+    <text x="0" y="-72" text-anchor="middle" class="label small">N</text>
+    <text x="73" y="8" text-anchor="middle" class="label small">E</text>
+    <text x="0" y="89" text-anchor="middle" class="label small">S</text>
+    <text x="-74" y="8" text-anchor="middle" class="label small">W</text>
+  </g>
+
+  <g transform="translate(287 252)">
+    <path d="M0,34 h54 l-7,18 h-40 Z" fill="#8c5b35" stroke="#442b18" stroke-width="3"/>
+    <path d="M22,0 v38" stroke="#442b18" stroke-width="4"/>
+    <path d="M22,0 q30,8 26,28 q-28,-4 -26,-28 Z" fill="#d34b42" stroke="#442b18" stroke-width="3"/>
+    <path d="M22,0 q-18,10 -14,24 q16,-2 14,-24 Z" fill="#ece8df" stroke="#442b18" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(1412 632)">
+    <rect x="0" y="20" width="84" height="52" rx="6" fill="#9a612f" stroke="#4a2e18" stroke-width="4"/>
+    <rect x="0" y="12" width="84" height="18" rx="6" fill="#b4763e" stroke="#4a2e18" stroke-width="4"/>
+    <circle cx="28" cy="43" r="5" fill="#f3cf59"/>
+    <circle cx="56" cy="43" r="5" fill="#f3cf59"/>
+  </g>
+
+  <text x="150" y="152" class="label">Pirates Cove</text>
+  <text x="1090" y="192" class="label">Mermaid Lagoon</text>
+  <text x="523" y="550" class="label">Pearl Beach</text>
+  <text x="846" y="534" class="label">Here Be Monsters</text>
+  <text x="950" y="812" class="label">Gold Coast</text>
+  <text x="1186" y="742" class="label">X Marks The Spot</text>
+</svg>

@@ -8,6 +8,37 @@
 (function () {
   'use strict';
 
+  function updateHud(id) {
+    const l1 = document.getElementById('hud-label-1');
+    const v1 = document.getElementById('hud-value-1');
+    const l2 = document.getElementById('hud-label-2');
+    const v2 = document.getElementById('hud-value-2');
+    if (!l1 || !v1 || !l2 || !v2) return;
+
+    if (id === 'books') {
+      l1.textContent = 'WORLD';
+      v1.textContent = '1-1';
+      l2.textContent = 'READS';
+      v2.textContent = '🪙 FREE';
+      return;
+    }
+
+    if (id === 'blog') {
+      l1.textContent = 'SEASON';
+      v1.textContent = 'SPRING';
+      l2.textContent = 'POSTS';
+      v2.textContent = '✏ SOON';
+      return;
+    }
+
+    if (id === 'repos') {
+      l1.textContent = 'REGION';
+      v1.textContent = 'MAP';
+      l2.textContent = 'PINS';
+      v2.textContent = '🧭 8';
+    }
+  }
+
   function setTheme(id) {
     const themes = ['theme-books', 'theme-blog', 'theme-repos'];
     document.body.classList.remove(...themes);
@@ -22,6 +53,7 @@
     if (panel) panel.classList.add('active');
     if (btn)   btn.classList.add('active');
     setTheme(id);
+    updateHud(id);
   }
 
   // Wire up all tab buttons via delegation
@@ -35,6 +67,8 @@
   // Sync theme with current active tab on load.
   const initial = document.querySelector('.tab-btn.active');
   if (initial && initial.dataset.tab) {
-    setTheme(initial.dataset.tab);
+    const activeId = initial.dataset.tab;
+    setTheme(activeId);
+    updateHud(activeId);
   }
 })();
