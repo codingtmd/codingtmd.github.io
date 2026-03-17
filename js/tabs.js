@@ -8,6 +8,12 @@
 (function () {
   'use strict';
 
+  function setTheme(id) {
+    const themes = ['theme-books', 'theme-blog', 'theme-repos'];
+    document.body.classList.remove(...themes);
+    document.body.classList.add(`theme-${id}`);
+  }
+
   function showTab(id) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -15,6 +21,7 @@
     const btn   = document.querySelector(`.tab-btn[data-tab="${id}"]`);
     if (panel) panel.classList.add('active');
     if (btn)   btn.classList.add('active');
+    setTheme(id);
   }
 
   // Wire up all tab buttons via delegation
@@ -24,4 +31,10 @@
 
   // Expose globally in case other scripts need it
   window.showTab = showTab;
+
+  // Sync theme with current active tab on load.
+  const initial = document.querySelector('.tab-btn.active');
+  if (initial && initial.dataset.tab) {
+    setTheme(initial.dataset.tab);
+  }
 })();

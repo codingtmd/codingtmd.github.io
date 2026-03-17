@@ -79,3 +79,137 @@ header {
   box-shadow: none;
   transform: translate(3px, 3px);
 }
+
+/* Books header theme: glossy, colorful, playful. */
+body.theme-books .hud {
+  background:
+    linear-gradient(90deg, rgba(13, 35, 86, 0.95) 0%, rgba(30, 82, 170, 0.94) 48%, rgba(86, 31, 173, 0.93) 100%);
+  border-bottom: 4px solid #ffe15e;
+  box-shadow: 0 5px 0 rgba(31, 30, 66, 0.65);
+}
+
+body.theme-books .hud-brand {
+  color: #ffffff;
+  text-shadow: 0 2px 0 #173068, 0 0 14px rgba(130, 220, 255, 0.6);
+  letter-spacing: 0.8px;
+}
+
+body.theme-books .hud-stat {
+  color: #ecf6ff;
+}
+
+body.theme-books .hud-stat .label {
+  color: #9ed7ff;
+}
+
+body.theme-books .tab-bar {
+  background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(240,247,255,0.66) 100%);
+  border-bottom: 3px solid rgba(31, 30, 66, 0.4);
+}
+
+body.theme-books .tab-btn {
+  border: 3px solid #1f1e42;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #eaf3ff 0%, #cfdfff 100%);
+  color: #2a3f77;
+  box-shadow: 0 4px 0 #1f1e42;
+}
+
+body.theme-books .tab-btn:hover {
+  background: linear-gradient(180deg, #f6fbff 0%, #dce8ff 100%);
+  color: #142a64;
+}
+
+body.theme-books .tab-btn.active {
+  background: linear-gradient(180deg, #ffe76f 0%, #ffb330 100%);
+  color: #1f1e42;
+  transform: translate(0, 3px);
+  box-shadow: 0 1px 0 #1f1e42;
+}
+
+body.theme-books .tab-btn[data-tab="books"] {
+  background: linear-gradient(180deg, #ffdb66 0%, #ffa739 100%);
+  color: #1f1e42;
+}
+
+@media (max-width: 760px) {
+  body.theme-books .hud-brand {
+    font-size: 0.52rem;
+  }
+
+  body.theme-books .hud-right {
+    gap: 14px;
+  }
+
+  body.theme-books .tab-btn {
+    font-size: 0.44rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Blog header theme: warm wood + soft green controls. */
+body.theme-blog .hud {
+  background: #7e5f3f;
+  border-bottom-color: #f8edd1;
+}
+
+body.theme-blog .hud-brand {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.05rem;
+  color: #f8edd1;
+  text-shadow: none;
+}
+
+body.theme-blog .hud-stat .label {
+  color: #e4d9bf;
+}
+
+body.theme-blog .tab-bar {
+  background: #7e5f3f;
+}
+
+body.theme-blog .tab-btn {
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.95rem;
+  background: #dcefdc;
+  color: #2f5a3a;
+  border: 2px solid #2f5a3a;
+  box-shadow: 0 4px 0 #2f5a3a;
+}
+
+body.theme-blog .tab-btn:hover {
+  background: #cbe5cb;
+}
+
+body.theme-blog .tab-btn.active {
+  background: #8fcd9f;
+  color: #1f4028;
+  transform: translate(0, 2px);
+  box-shadow: 0 2px 0 #2f5a3a;
+}
+
+/* Repos header theme: simple and low-noise. */
+body.theme-repos .hud,
+body.theme-repos .tab-bar {
+  background: #cfd7e0;
+  border-bottom-color: #8fa0b1;
+}
+
+body.theme-repos .hud-brand,
+body.theme-repos .hud-stat {
+  color: #2e4154;
+  text-shadow: none;
+}
+
+body.theme-repos .tab-btn {
+  background: #e6ebf1;
+  color: #3a4e62;
+  border-color: #8fa0b1;
+  box-shadow: none;
+}
+
+body.theme-repos .tab-btn.active {
+  background: #b9c5d2;
+  color: #23303c;
+  transform: none;
+}

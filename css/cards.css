@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 520px;          /* fixed card height */
+  height: 520px;
   transition: transform 0.12s, box-shadow 0.12s;
 }
 .item-card:hover {
@@ -85,6 +85,7 @@
   color: #555;
   /* Clamp to 4 lines, show ellipsis if text overflows */
   display: -webkit-box;
+  line-clamp: 4;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -140,4 +141,145 @@
   text-shadow: 2px 2px 0 var(--black);
   background: rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
+}
+
+/* ── BOOKS / Mario Wonder-inspired card polish ── */
+#books .item-card {
+  border-radius: 14px;
+  border: 4px solid #1f1e42;
+  box-shadow: 0 10px 0 #1f1e42;
+  background: #f8f8f8;
+}
+
+#books .item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 0 #1f1e42;
+}
+
+#books .card-image {
+  height: 250px;
+  background: linear-gradient(180deg, #49b6ff 0%, #4c84ff 100%);
+  border-bottom: 4px solid #1f1e42;
+}
+
+#books .card-image::before {
+  content: none;
+}
+
+#books .card-image::after {
+  content: none;
+}
+
+#books .card-image .badge {
+  border-radius: 4px;
+  font-size: 0.4rem;
+  padding: 6px 10px;
+  background: #ffd84d;
+}
+
+#books .mario-icons {
+  display: none;
+}
+
+#books .card-title {
+  color: #1f2c67;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.75);
+}
+
+#books .card-desc {
+  color: #435372;
+}
+
+#books .btn {
+  border-radius: 4px;
+  border-width: 3px;
+  box-shadow: 0 4px 0 #1f1e42;
+}
+
+#books .btn-en {
+  background: linear-gradient(180deg, #4fb7ff 0%, #1a5fc8 100%);
+}
+
+#books .btn-cn {
+  background: linear-gradient(180deg, #ff6d67 0%, #cc0000 100%);
+}
+
+#books .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #1f1e42;
+}
+
+#books .btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #1f1e42;
+}
+
+#books .cards-grid {
+  margin-top: 132px;
+  justify-content: center;
+}
+
+/* ── BLOG / Animal Crossing style overrides ── */
+#blog .cards-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 420px));
+}
+
+#blog .item-card {
+  height: auto;
+  min-height: 420px;
+  border: 3px solid #7ba686;
+  border-radius: 20px;
+  box-shadow: 0 10px 0 #b7cfbc;
+  background: #fff8e8;
+}
+
+#blog .item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 0 #b7cfbc;
+}
+
+#blog .card-image {
+  height: 220px;
+  font-size: 5rem;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.75) 0, rgba(255, 255, 255, 0) 38%),
+    linear-gradient(180deg, #bfe8cf 0%, #8fcd9f 100%);
+  border-bottom: 3px dashed #6e9f77;
+}
+
+#blog .card-body {
+  background: #fff8e8;
+}
+
+#blog .card-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: #2f5a3a;
+}
+
+#blog .card-desc {
+  color: #52755a;
+  font-weight: 700;
+}
+
+#blog .btn {
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  border: 2px solid #2f5a3a;
+  box-shadow: 0 4px 0 #2f5a3a;
+  color: #fff;
+}
+
+#blog .btn-primary {
+  background: #5ea974;
+}
+
+/* ── REPOS / intentionally blank for now ── */
+.repos-empty {
+  height: 320px;
+  border: 2px dashed #b8c2cc;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
 }

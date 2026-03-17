@@ -23,21 +23,35 @@
 html, body { height: 100%; }
 
 body {
-  /* Mario World 1-1 sky + CSS clouds */
+  /* Neutral default sky; category themes can override this. */
   background-color: var(--sky);
-  background-image:
-    radial-gradient(ellipse  90px 45px at  9% 18%, rgba(255,255,255,0.92) 100%, transparent),
-    radial-gradient(ellipse  55px 32px at  6% 14%, rgba(255,255,255,0.92) 100%, transparent),
-    radial-gradient(ellipse  70px 34px at 14% 22%, rgba(255,255,255,0.92) 100%, transparent),
-    radial-gradient(ellipse 110px 55px at 58% 11%, rgba(255,255,255,0.90) 100%, transparent),
-    radial-gradient(ellipse  75px 38px at 54%  8%, rgba(255,255,255,0.90) 100%, transparent),
-    radial-gradient(ellipse  85px 38px at 64% 15%, rgba(255,255,255,0.90) 100%, transparent),
-    radial-gradient(ellipse  75px 38px at 84% 28%, rgba(255,255,255,0.85) 100%, transparent),
-    radial-gradient(ellipse  48px 26px at 81% 24%, rgba(255,255,255,0.85) 100%, transparent);
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
   color: var(--text-dark);
   overflow-x: hidden;
+}
+
+/* Books: keep page background neutral so SMB scene is only in #books. */
+body.theme-books {
+  background: #5c94fc;
+  color: #1f1e42;
+}
+
+/* Blog: soft green Animal Crossing vibe with gentle pattern. */
+body.theme-blog {
+  background-color: #e4f6e7;
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(95, 146, 108, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 36px 36px, rgba(95, 146, 108, 0.06) 2px, transparent 2px),
+    linear-gradient(180deg, #f5fff6 0%, #def2e0 100%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+  color: #2b4a33;
+}
+
+/* Repos: intentionally blank and neutral for now. */
+body.theme-repos {
+  background: #eef1f4;
+  color: #23303c;
 }
 
 /* ── Page wrapper ── */
@@ -45,6 +59,13 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 44px 28px 120px;
+}
+
+/* Books tab uses full-width stage instead of a framed inner panel. */
+body.theme-books main {
+  max-width: none;
+  width: 100%;
+  padding: 0;
 }
 
 /* ── Tab panels ── */
@@ -64,4 +85,321 @@ main {
   box-shadow: 6px 6px 0 var(--black);
   display: inline-block;
   border-radius: 4px;
+}
+
+#books .panel-title {
+  background: linear-gradient(180deg, #ff9f3b 0%, #ff7a21 100%);
+  border-color: #1f1e42;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 #1f1e42;
+  color: #fffdf8;
+}
+
+@media (max-width: 720px) {
+  body.theme-books {
+    background: #5c94fc;
+  }
+}
+
+/* Books panel: clear game-scene stage behind content. */
+#books {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-height: calc(100dvh - 106px);
+  padding: 0 0 48px;
+  background:
+    linear-gradient(180deg, #5c94fc 0%, #5c94fc 100%);
+}
+
+#books::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 84px;
+  z-index: 1;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent 0 22px,
+      rgba(0, 0, 0, 0.28) 22px 24px),
+    repeating-linear-gradient(90deg,
+      transparent 0 46px,
+      rgba(0, 0, 0, 0.28) 46px 50px),
+    #c84b0c;
+  border-top: 4px solid #1f1e42;
+}
+
+#books::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 84px;
+  height: 10px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#books .cards-grid {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#books .cards-grid {
+  width: min(1200px, calc(100% - 56px));
+}
+
+.books-scene-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scene-hud {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  color: #ffffff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cloud {
+  position: absolute;
+  background: #ffffff;
+  border: 3px solid #1f1e42;
+  border-radius: 999px;
+  height: 34px;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border: 3px solid #1f1e42;
+  border-radius: 999px;
+  top: -12px;
+  width: 34px;
+  height: 24px;
+}
+
+.cloud-left {
+  left: 18%;
+  top: 96px;
+  width: 78px;
+}
+
+.cloud-left::before { left: 8px; }
+.cloud-left::after  { right: 8px; }
+
+.cloud-right {
+  right: 16%;
+  top: 100px;
+  width: 128px;
+}
+
+.cloud-right::before { left: 18px; }
+.cloud-right::after  { right: 18px; }
+
+.pipe {
+  position: absolute;
+  left: 10%;
+  bottom: 84px;
+  width: 86px;
+  height: 108px;
+  background: linear-gradient(90deg, #1ecb28 0%, #47e142 40%, #1c9f22 100%);
+  border: 4px solid #1f1e42;
+  border-radius: 3px;
+}
+
+.pipe::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: -24px;
+  height: 24px;
+  background: linear-gradient(90deg, #26d833 0%, #51ea4d 45%, #1ea52a 100%);
+  border: 4px solid #1f1e42;
+  border-radius: 4px 4px 0 0;
+}
+
+.sprite-mario {
+  position: absolute;
+  left: calc(10% + 18px);
+  bottom: 186px;
+  font-size: 0.62rem;
+  font-family: 'Press Start 2P', monospace;
+  color: #ff4d3b;
+  background: #fff3d9;
+  border: 3px solid #1f1e42;
+  border-radius: 4px;
+  padding: 5px 7px;
+  box-shadow: 0 3px 0 #1f1e42;
+}
+
+.brick-row {
+  position: absolute;
+  left: 42%;
+  bottom: 188px;
+  width: 210px;
+  height: 44px;
+  border: 4px solid #1f1e42;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 17px, rgba(0, 0, 0, 0.24) 17px 20px),
+    repeating-linear-gradient(90deg, transparent 0 48px, rgba(0, 0, 0, 0.24) 48px 52px),
+    #d3631f;
+}
+
+.question-block {
+  position: absolute;
+  left: calc(42% + 78px);
+  bottom: 188px;
+  width: 54px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #1f1e42;
+  background: linear-gradient(180deg, #ffb04f 0%, #ff7f17 100%);
+  color: #1f1e42;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.hill {
+  position: absolute;
+  bottom: 84px;
+  border-radius: 50% 50% 0 0;
+  border: 4px solid #1f1e42;
+  border-bottom: 0;
+  background: #4db953;
+}
+
+.hill-left {
+  left: 2%;
+  width: 120px;
+  height: 64px;
+}
+
+.hill-mid {
+  left: 34%;
+  width: 92px;
+  height: 48px;
+}
+
+.goomba {
+  position: absolute;
+  bottom: 96px;
+  width: 34px;
+  height: 30px;
+  border-radius: 50% 50% 38% 38%;
+  border: 3px solid #1f1e42;
+  background: #c66b2f;
+}
+
+.goomba::before,
+.goomba::after {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  width: 12px;
+  height: 10px;
+  background: #1f1e42;
+  border-radius: 3px;
+}
+
+.goomba::before { left: 3px; }
+.goomba::after { right: 3px; }
+
+.goomba-a { right: 9%; }
+.goomba-b { right: 5%; }
+
+@media (max-width: 1024px) {
+  .scene-hud {
+    font-size: 0.45rem;
+  }
+
+  .pipe { left: 5%; }
+  .sprite-mario { left: calc(5% + 18px); }
+  .brick-row { left: 40%; }
+  .question-block { left: calc(40% + 78px); }
+  .hill-mid { left: 30%; }
+}
+
+@media (max-width: 900px) {
+  #books {
+    min-height: calc(100vh - 200px);
+    padding: 18px 0 44px;
+  }
+
+  .scene-hud {
+    font-size: 0.38rem;
+    left: 12px;
+    right: 12px;
+  }
+
+  .cloud-right,
+  .brick-row,
+  .question-block,
+  .goomba,
+  .hill-mid {
+    display: none;
+  }
+
+  .pipe { left: 30px; width: 72px; }
+  .sprite-mario { left: 40px; font-size: 0.5rem; }
+  .hill-left { left: 108px; width: 88px; height: 42px; }
+  .cloud-left { left: 52%; top: 108px; }
+}
+
+@media (max-width: 600px) {
+  #books {
+    min-height: calc(100vh - 180px);
+  }
+
+  #books::before {
+    height: 64px;
+  }
+
+  .pipe,
+  .sprite-mario,
+  .hill-left {
+    display: none;
+  }
+
+  #books .panel-title {
+    width: calc(100% - 24px);
+  }
+}
+
+#blog .panel-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+  color: #2f5a3a;
+  text-shadow: none;
+  background: #f8edd1;
+  border: 3px solid #6e9f77;
+  border-radius: 18px;
+  box-shadow: 0 6px 0 #a9c7ae;
+}
+
+#repos .panel-title {
+  font-size: 0.65rem;
+  background: #d8dee6;
+  color: #2e4154;
+  text-shadow: none;
+  border-color: #8fa0b1;
+  box-shadow: none;
 }

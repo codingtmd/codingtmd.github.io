@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodingTMD Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
   <!-- ─── Styles (each file owns one concern) ─── -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/hud.css">
   <link rel="stylesheet" href="css/cards.css">
   <link rel="stylesheet" href="css/modal.css">
 </head>
-<body>
+<body class="theme-books">
 
   <!-- ════════════════════════════════════════
        HEADER — HUD + pixel tab bar
@@ -42,8 +42,7 @@
 
   <!-- ════════════════════════════════════════
        MAIN — one .tab-panel per category.
-       Cards use shared CSS from cards.css —
-       no per-category styling needed.
+      Each category now owns a distinct visual style.
        ════════════════════════════════════════ -->
   <main>
 
@@ -52,12 +51,30 @@
          each new book. Cards auto-reflow.
          ──────────────────────────────────── -->
     <div class="tab-panel active" id="books">
-      <div class="panel-title">📚 BOOK COLLECTION</div>
+      <div class="books-scene-bg" aria-hidden="true">
+        <div class="scene-hud">
+          <span>MARIO<br>005400</span>
+          <span>🪙 x22</span>
+          <span>WORLD<br>1-1</span>
+          <span>TIME<br>367</span>
+        </div>
+        <span class="cloud cloud-left"></span>
+        <span class="cloud cloud-right"></span>
+        <span class="pipe"></span>
+        <span class="sprite-mario">MARIO</span>
+        <span class="brick-row"></span>
+        <span class="question-block">?</span>
+        <span class="hill hill-left"></span>
+        <span class="hill hill-mid"></span>
+        <span class="goomba goomba-a"></span>
+        <span class="goomba goomba-b"></span>
+      </div>
       <div class="cards-grid">
 
         <div class="item-card">
-          <div class="card-image">
+          <div class="card-image mario-scene">
             🍄
+            <span class="mario-icons" aria-hidden="true">⭐ 🌼 🪙</span>
             <span class="badge">★ FREE</span>
           </div>
           <div class="card-body">
@@ -88,11 +105,17 @@
       <div class="panel-title">📝 BLOG</div>
       <div class="cards-grid">
 
-        <div class="item-card locked">
-          <div class="card-image">✏️</div>
+        <div class="item-card">
+          <div class="card-image">🍃</div>
           <div class="card-body">
-            <div class="card-title">First Post</div>
-            <p class="card-desc">Coming soon...</p>
+            <div class="card-title">Island Dev Log</div>
+            <p class="card-desc">
+              Cozy notes about shipping projects, tiny design wins, and experiments in crypto learning.
+              Styled like a soft Animal Crossing bulletin board.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#" aria-disabled="true">ISLAND GATE OPENS SOON</a>
+            </div>
           </div>
         </div>
 
@@ -104,17 +127,7 @@
          ──────────────────────────────────── -->
     <div class="tab-panel" id="repos">
       <div class="panel-title">💾 GITHUB REPOS</div>
-      <div class="cards-grid">
-
-        <div class="item-card locked">
-          <div class="card-image">⚙️</div>
-          <div class="card-body">
-            <div class="card-title">Featured Repo</div>
-            <p class="card-desc">Coming soon...</p>
-          </div>
-        </div>
-
-      </div>
+      <div class="repos-empty" aria-hidden="true"></div>
     </div><!-- /#repos -->
 
   </main>

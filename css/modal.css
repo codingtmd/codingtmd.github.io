@@ -178,3 +178,27 @@
   text-align: center;
   line-height: 1.65;
 }
+
+/* Books modal polish: candy colors, still pixel-ish controls. */
+body.theme-books .mario-ground {
+  display: none;
+}
+
+body.theme-books .coin-float {
+  display: flex;
+}
+
+body.theme-books .modal-box {
+  border-radius: 18px;
+  border-color: #1f1e42;
+  box-shadow: 0 12px 0 #1f1e42;
+}
+
+body.theme-books .modal-titlebar {
+  background: linear-gradient(90deg, #1a5fc8 0%, #5f86ff 52%, #a263ff 100%);
+}
+
+body.theme-books .copy-btn {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #46c56f 0%, #149414 100%);
+}
